@@ -1,4 +1,4 @@
-package com.example.jn_english.entity.tag;
+package com.example.jn_english.entity.enums;
 
 public enum Tag {
     elementary,

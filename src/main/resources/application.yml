@@ -1,1 +1,33 @@
-
+spring:
+  jpa:
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    url: ${URL}
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+jwt:
+  secret: ${SECRET}
+  expired:
+    access: ${ACCESS_EXP}
+    refresh: ${REFRESH_EXP}
+cloud:
+  aws:
+    s3:
+      bucket: ${BUCKET}
+      url:  ${S3_URL}
+    credentials:
+      access-key: ${ACCESS_KEY}
+      secret-key: ${REFRESH_KEY}
+    region:
+      static: ${REGION}
+      auto: false
+    stack:
+      auto: false

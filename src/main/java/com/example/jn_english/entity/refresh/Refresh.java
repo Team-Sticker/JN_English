@@ -1,4 +1,4 @@
-package com.example.jn_english.entity;
+package com.example.jn_english.entity.refresh;
 
 import com.example.jn_english.entity.admin.Admin;
 import lombok.AccessLevel;
@@ -34,5 +34,10 @@ public class Refresh {
     public Refresh(String refresh, Admin admin) {
         this.admin = admin;
         this.refresh = refresh;
+    }
+
+    public Refresh updateRefresh(String token) {
+        this.refresh = token;
+        return this;
     }
 }

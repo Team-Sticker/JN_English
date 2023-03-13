@@ -1,6 +1,7 @@
-package com.example.jn_english.entity;
+package com.example.jn_english.entity.admin;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +18,16 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     private String accountId;
 
     private String password;
+
+    @Builder
+    public Admin(String name, String accountId, String password) {
+        this.name = name;
+        this.accountId = accountId;
+        this.password = password;
+    }
 }

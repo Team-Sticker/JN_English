@@ -1,15 +1,22 @@
-package com.example.jn_english.entity;
+package com.example.jn_english.entity.post;
 
-import com.example.jn_english.entity.tag.Tag;
+import com.example.jn_english.entity.admin.Admin;
+import com.example.jn_english.entity.enums.Tag;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,18 +28,22 @@ public class Post {
 
     private String title;
 
-    private String content;
+    @Enumerated(EnumType.STRING)
+    private Tag tag;
 
-    private Tag tag; // 나중에 enum 으로 바꿀것
+    @Column(nullable = false)
+    private LocalDate createdDate;
 
-    private String image;
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 
     @Builder
-    public Post(String title, String content, String image, Tag tag) {
+    public Post(String title, Tag tag, Admin admin) {
         this.title = title;
-        this.content = content;
-        this.image = image;
         this.tag = tag;
+        this.admin = admin;
+        this.createdDate = LocalDate.now();
     }
 
 }

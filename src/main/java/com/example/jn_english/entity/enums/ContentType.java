@@ -1,2 +1,5 @@
-package com.example.jn_english.entity.enums;public enum ContentType {
+package com.example.jn_english.entity.enums;
+
+public enum ContentType {
+    IMAGE, CONTENT
 }
