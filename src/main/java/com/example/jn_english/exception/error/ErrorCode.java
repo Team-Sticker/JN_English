@@ -12,7 +12,7 @@ public enum ErrorCode {
     IMAGE_BAD_REQUEST(400, "이미지가 올바르지 않습니다."),
     POST_NOT_FOUND(404, "게시물을 찾을 수 없습니다."),
     REFRESH_BAD_REQUEST(400, "Refresh Token이 아닙니다."),
-    ADMON_UNAUTHORIZED(401, "로그인 되지 않은 사용자입니다.");
+    ADMIN_UNAUTHORIZED(401, "로그인 되지 않은 사용자입니다.");
     private final int status;
 
     private final String message;

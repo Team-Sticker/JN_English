@@ -7,6 +7,6 @@ public class AdminUnauthorizedException extends CustomException {
     public static final AdminUnauthorizedException EXCEPTION =
             new AdminUnauthorizedException();
     private AdminUnauthorizedException() {
-        super(ErrorCode.ADMON_UNAUTHORIZED);
+        super(ErrorCode.ADMIN_UNAUTHORIZED);
     }
 }

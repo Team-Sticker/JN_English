@@ -9,6 +9,7 @@ import com.example.jn_english.entity.content.ContentRepository;
 import com.example.jn_english.entity.details.Details;
 import com.example.jn_english.entity.post.Post;
 import com.example.jn_english.entity.post.PostRepository;
+import com.example.jn_english.exception.custom.AccountIdNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,8 @@ public class AdminService {
 
     public void posting(PostRequest request) {
         Details details = (Details) (SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        Admin admin = adminRepository.findByAccountId(details.getUsername()).get();
+        Admin admin = adminRepository.findByAccountId(details.getUsername())
+                .orElseThrow(()-> AccountIdNotFoundException.EXCEPTION);
         Post post = postRepository.save(Post.builder()
                 .title(request.getTitle())
                 .tag(request.getTag())
